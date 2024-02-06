@@ -3,9 +3,13 @@
 
 class Simulator {
     private:
+        int width, height;
+
     public:
+        bool isRunning;
         Simulator();
-        void init(const char *title, int width, int height, int fps);
+        void init(const char *title, int width, int height);
+        void render();
         void update();
         void destroy();
         ~Simulator();
