@@ -2,20 +2,23 @@
 #define VEHICLE_MANAGER_H
 
 #include <Vehicle.h>
-#include <unordered_set>
+#include <vector>
 
 class VehicleManager {
     private:
         VehicleManager();
-        VehicleManager(VehicleManager const &) = delete;
+        VehicleManager(const VehicleManager &) = delete;
         VehicleManager &operator=(const VehicleManager &) = delete;
-        static std::unordered_set<Vehicle> *vehicles;
-        ~VehicleManager();
 
     public:
-        static VehicleManager &getInstance();
+        static std::vector<Vehicle *> vehicles;
+        static VehicleManager *getInstance();
         void update();
-        void destroy();
+        template <typename T> T *addVehicle(int d, int v) {
+            T *vehicle = new T(d, v);
+            vehicles.push_back(vehicle);
+            return vehicle;
+        };
 };
 
 #endif

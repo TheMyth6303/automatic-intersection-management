@@ -3,13 +3,16 @@
 
 class Simulator {
     private:
-        int width, height;
+        int wsize, roadWidth;
+        void renderBG();
+        void renderVehicles();
 
     public:
         bool isRunning;
         Simulator();
-        void init(const char *title, int width, int height);
+        void init(const char *title, int wsize);
         void render();
+        void handleEvents();
         void update();
         void destroy();
         ~Simulator();
