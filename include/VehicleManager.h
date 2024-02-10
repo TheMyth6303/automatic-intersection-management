@@ -19,6 +19,7 @@ class VehicleManager {
             vehicles.push_back(vehicle);
             return vehicle;
         };
+        void generateRandom(int n);
 };
 
 #endif

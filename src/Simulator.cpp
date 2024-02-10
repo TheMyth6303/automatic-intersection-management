@@ -3,7 +3,6 @@
 #include <Simulator.h>
 #include <Vehicle.h>
 #include <VehicleManager.h>
-#include <iostream>
 
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
@@ -39,9 +38,7 @@ void Simulator::init(const char *title, int wsize) {
     vehicleTexture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
 
-    vehicleManager->addVehicle<D1_Vehicle>(400, 2);
-    vehicleManager->addVehicle<D1_Vehicle>(350, 3);
-    vehicleManager->addVehicle<D2_Vehicle>(350, 2);
+    vehicleManager->generateRandom(6);
 }
 
 void Simulator::renderBG() {
@@ -79,7 +76,6 @@ void Simulator::renderVehicles() {
         int y = v->getY(wsize, roadWidth);
         int theta = v->getTheta();
         rect = {x - L / 2, y - B / 2, L, B};
-        // SDL_RenderCopyEx(renderer, nullptr, nullptr, &rect, theta, nullptr, SDL_FLIP_NONE);
         SDL_RenderCopyEx(renderer, vehicleTexture, nullptr, &rect, static_cast<double>(theta), nullptr, SDL_FLIP_NONE);
     }
 }
