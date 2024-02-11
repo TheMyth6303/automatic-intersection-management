@@ -1,6 +1,5 @@
 #include <SDL.h>
 #include <Simulator.h>
-#include <iostream>
 
 const int W_SIZE = 800;
 const int FPS = 24;

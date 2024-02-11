@@ -1,8 +1,8 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
-const int L = 36;
-const int B = 20;
+const int L = 20;
+const int B = 10;
 
 class Vehicle {
     protected:
